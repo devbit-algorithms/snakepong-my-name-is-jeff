@@ -7,7 +7,7 @@ Met veel moed maar een slecht ochtend humeur zijn we dan aan deze taak begonnen.
 
 # Requirements
 
- | What | What Does It Do |
+ | ==What== | ==What Does It Do== |
  :---: | ----
  **Snake** | This is the thing the player uses to play the game |
  **Wall**  | Will automatically be generated and the ball will collide with the wall |
@@ -15,7 +15,7 @@ Met veel moed maar een slecht ochtend humeur zijn we dan aan deze taak begonnen.
 
 # Roadmap
 
-Finished | Exercise | Difficulty
+==Finished== | ==Exercise== | ==Difficulty==
 :---: | ---- | ----
  ✔️ | Making Walls | :star:
  X | Snake | :star::star:
