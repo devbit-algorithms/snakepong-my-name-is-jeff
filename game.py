@@ -28,7 +28,7 @@ class Game:
 
         self.game_loop()
         os.system("clear")
-        print("press any key to go back to the terminal")
+        print("GAME OVER\npress any key to go back to the terminal")
         
 
     def createWalls(self):
@@ -42,11 +42,14 @@ class Game:
 
 
     def game_loop(self):
+        counter = 0
         while not self.gameover:
-            self.update()
+            if counter <= 10:
+                self.update()
+                counter = 0
             self.render()
-            time.sleep(1)
-        # self.keyinputthread._delete()
+            time.sleep(0.2)
+            counter += counter
 
     def update(self):
         
