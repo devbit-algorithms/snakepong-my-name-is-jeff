@@ -1,6 +1,7 @@
 from canvas import Canvas
 from wall import Wall
 from snake import Snake
+from tail import Tail
 
 import threading
 from msvcrt import getwch, kbhit
@@ -13,9 +14,11 @@ class Game:
     def __init__(self):
         self.canv = Canvas(20,20)
         self.direction = "right"
-        threading.Thread(target=self.updateDirection).start()
-        
+        keyinputthread = threading.Thread(target=self.updateDirection)
+        keyinputthread.start()
+
         self.walls = []
+        self.tails = []
         self.snake = Snake(int(self.canv.getWidth()/2),int(self.canv.getHeight()/2))
 
         self.createWalls()
@@ -38,6 +41,7 @@ class Game:
 
 
     def update(self):
+        self.updateTail()
         self.updateSnake()
         
 
@@ -63,6 +67,16 @@ class Game:
             self.snake.move(self.snake.x(),self.snake.y()-1) #right
         if self.direction == "down":
             self.snake.move(self.snake.x(),self.snake.y()+1) #right
+
+    def updateTail(self):
+        taillength = 7
+        if len(self.tails) < taillength:
+            self.addTailPiece()
+        if len(self.tails) >= taillength:
+            self.addTailPiece()
+            self.deleteLastTailPiece()
+
+
         
 
     def render(self):
@@ -71,10 +85,16 @@ class Game:
         for wall in self.walls:
             wall.render(self.canv)
 
+        for tail in self.tails:
+            tail.render(self.canv)
+
         self.snake.render(self.canv)
 
         self.canv.outputCanvasTerminal()
 
-    
+    def addTailPiece(self):
+        self.tails.append(Tail(self.snake.x(),self.snake.y()))
 
+    def deleteLastTailPiece(self):
+        self.tails.pop(0)
 
