@@ -2,6 +2,7 @@ from canvas import Canvas
 from wall import Wall
 from snake import Snake
 from tail import Tail
+from goal import Goal
 
 import threading
 from msvcrt import getwch, kbhit
@@ -19,6 +20,7 @@ class Game:
 
         self.walls = []
         self.tails = []
+        self.goals = []
         self.snake = Snake(int(self.canv.getWidth()/2),int(self.canv.getHeight()/2))
 
         self.createWalls()
@@ -29,8 +31,11 @@ class Game:
     def createWalls(self):
         for y in range(self.canv.getHeight()):
             for x in range(self.canv.getWidth()):
-                if(x==0 or x == self.canv.getWidth() - 1 or y==0 or y == self.canv.getHeight() -1):
+                if(x==0 or  y==0 or y == self.canv.getHeight() -1):
                     self.walls.append(Wall(x,y))
+                if( x == self.canv.getWidth()-1):
+                    self.goals.append(Goal(x,y))
+
 
 
     def game_loop(self):
@@ -48,13 +53,13 @@ class Game:
     def updateDirection(self):
         while True:
             key = getwch()
-            if key == "q":
+            if (key == "q") & (self.direction is not "right"):
                 self.direction = "left" #left
-            if key == "d":
+            if (key == "d") & (self.direction is not "left"):
                 self.direction = "right" #right
-            if key == "z":
+            if (key == "z") & (self.direction is not "down"):
                 self.direction = "up" #down
-            if key == "s":
+            if (key == "s") & (self.direction is not "up"):
                 self.direction = "down" #up
 
     def updateSnake(self):
@@ -81,6 +86,9 @@ class Game:
         self.canv.clearCanvas()
         for wall in self.walls:
             wall.render(self.canv)
+
+        for goal in self.goals:
+            goal.render(self.canv)
 
         for tail in self.tails:
             tail.render(self.canv)
