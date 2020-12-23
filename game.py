@@ -69,15 +69,12 @@ class Game:
             self.snake.move(self.snake.x(),self.snake.y()+1) #right
 
     def updateTail(self):
-        taillength = 7
+        taillength = 5
         if len(self.tails) < taillength:
             self.addTailPiece()
         if len(self.tails) >= taillength:
             self.addTailPiece()
             self.deleteLastTailPiece()
-
-
-        
 
     def render(self):
         os.system("clear")
@@ -88,7 +85,7 @@ class Game:
         for tail in self.tails:
             tail.render(self.canv)
 
-        self.snake.render(self.canv)
+        self.snake.render(self.canv,self.direction)
 
         self.canv.outputCanvasTerminal()
 
