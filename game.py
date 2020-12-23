@@ -13,7 +13,7 @@ import os
 
 class Game:
     def __init__(self):
-        self.canv = Canvas(20,20)
+        self.canv = Canvas(40,30)
         self.direction = "left"
         self.gameover = False
         threading.Thread(target=self.updateDirection).start()
