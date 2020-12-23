@@ -7,7 +7,7 @@ Met veel moed maar een slecht ochtend humeur zijn we dan aan deze taak begonnen.
 
 ---
 
-# Requirements
+## Requirements
 
  | ==What== | ==What Does It Do== |
  :---: | ----
@@ -15,7 +15,7 @@ Met veel moed maar een slecht ochtend humeur zijn we dan aan deze taak begonnen.
  **Wall**  | Will automatically be generated and the ball will collide with the wall |
  **Ball**  | This will go randomly through the playingfield |
 
-# Roadmap
+## Roadmap
 
 ==Finished== | ==Exercise== | ==Difficulty==
 :---: | ---- | ----
