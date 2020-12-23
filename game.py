@@ -3,6 +3,7 @@ from wall import Wall
 from snake import Snake
 from tail import Tail
 from goal import Goal
+from ball import Ball
 
 import threading
 from msvcrt import getwch, kbhit
@@ -14,6 +15,7 @@ import os
 class Game:
     def __init__(self):
         self.canv = Canvas(40,30)
+        self.ball = Ball(2, int(self.canv.getHeight()/2) )
         self.direction = "left"
         self.gameover = False
         threading.Thread(target=self.updateDirection).start()
@@ -103,6 +105,8 @@ class Game:
             tail.render(self.canv)
 
         self.snake.render(self.canv,self.direction)
+
+        self.ball.render(self.canv)
 
         self.canv.outputCanvasTerminal()
 
