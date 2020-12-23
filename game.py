@@ -15,8 +15,9 @@ class Game:
     def __init__(self):
         self.canv = Canvas(20,20)
         self.direction = "right"
-        keyinputthread = threading.Thread(target=self.updateDirection)
-        keyinputthread.start()
+        self.gameover = False
+        self.keyinputthread = threading.Thread(target=self.updateDirection)
+        self.keyinputthread.start()
 
         self.walls = []
         self.tails = []
@@ -26,6 +27,8 @@ class Game:
         self.createWalls()
 
         self.game_loop()
+        os.system("clear")
+        print("press any key to go back to the terminal")
         
 
     def createWalls(self):
@@ -39,19 +42,21 @@ class Game:
 
 
     def game_loop(self):
-        while True:
+        while not self.gameover:
             self.update()
             self.render()
             time.sleep(1)
-
+        # self.keyinputthread._delete()
 
     def update(self):
+        
         self.updateTail()
         self.updateSnake()
+        self.collisionDetection()
         
 
     def updateDirection(self):
-        while True:
+        while not self.gameover:
             key = getwch()
             if (key == "q") & (self.direction is not "right"):
                 self.direction = "left" #left
@@ -103,3 +108,16 @@ class Game:
     def deleteLastTailPiece(self):
         self.tails.pop(0)
 
+    def collisionDetection(self):
+        self.collisionWall()
+        self.collisionTail()
+
+    def collisionWall(self):
+        for wall in self.walls:
+            if((wall.x() == self.snake.x()) & (wall.y() == self.snake.y())):
+                self.gameover = True
+
+    def collisionTail(self):
+        for tail in self.tails:
+            if((tail.x() == self.snake.x()) & (tail.y() == self.snake.y())):
+                self.gameover = True
