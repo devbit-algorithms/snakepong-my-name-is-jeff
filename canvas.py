@@ -15,8 +15,8 @@ class Canvas:
         self.screen[x][y] = symbol
     
     def outputCanvasTerminal(self):
-        for x in range (0,self.width):
-            for y in range (0,self.height):
+        for y in range (0,self.height):
+            for x in range (0,self.width):
                 print(self.screen[x][y],end = " ")
             print()
         
