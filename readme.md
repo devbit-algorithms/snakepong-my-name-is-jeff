@@ -12,3 +12,11 @@ Met veel moed maar een slecht ochtend humeur zijn we dan aan deze taak begonnen.
  Snake | This is the thing the player uses to play the game |
  Wall  | Will automatically be generated and the ball will collide with the wall |
  Ball  | This will go randomly through the playingfield |
+
+# Roadmap
+
+Finished | Exercise | Difficulty |
+ :✔️: | Making Walls | :star: |
+ :X: | Snake | :star:star: |
+ :X: | Ball | :star::star::star: |
+ :X: | Test | :star::star: |
