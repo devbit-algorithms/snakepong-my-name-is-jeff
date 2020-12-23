@@ -9,9 +9,9 @@ Met veel moed maar een slecht ochtend humeur zijn we dan aan deze taak begonnen.
 
  | What | What Does It Do |
  :---: | ----
- **bold**Snake | This is the thing the player uses to play the game |
- **bold**Wall  | Will automatically be generated and the ball will collide with the wall |
- **bold**Ball  | This will go randomly through the playingfield |
+ **Snake** | This is the thing the player uses to play the game |
+ **Wall**  | Will automatically be generated and the ball will collide with the wall |
+ **Ball**  | This will go randomly through the playingfield |
 
 # Roadmap
 
