@@ -14,11 +14,10 @@ import os
 class Game:
     def __init__(self):
         self.canv = Canvas(20,20)
-        self.direction = "right"
+        self.direction = "left"
         self.gameover = False
-        self.keyinputthread = threading.Thread(target=self.updateDirection)
-        self.keyinputthread.start()
-
+        threading.Thread(target=self.updateDirection).start()
+        
         self.walls = []
         self.tails = []
         self.goals = []
@@ -27,8 +26,9 @@ class Game:
         self.createWalls()
 
         self.game_loop()
+        
         os.system("clear")
-        print("GAME OVER\npress any key to go back to the terminal")
+        print("GAME OVER\nPress any key to go back to the terminal.")
         
 
     def createWalls(self):
@@ -62,13 +62,13 @@ class Game:
         while not self.gameover:
             key = getwch()
             if (key == "q") & (self.direction is not "right"):
-                self.direction = "left" #left
+                self.direction = "left" 
             if (key == "d") & (self.direction is not "left"):
-                self.direction = "right" #right
+                self.direction = "right" 
             if (key == "z") & (self.direction is not "down"):
-                self.direction = "up" #down
+                self.direction = "up" 
             if (key == "s") & (self.direction is not "up"):
-                self.direction = "down" #up
+                self.direction = "down" 
 
     def updateSnake(self):
         
@@ -92,11 +92,12 @@ class Game:
     def render(self):
         os.system("clear")
         self.canv.clearCanvas()
-        for wall in self.walls:
-            wall.render(self.canv)
 
         for goal in self.goals:
             goal.render(self.canv)
+
+        for wall in self.walls:
+            wall.render(self.canv)
 
         for tail in self.tails:
             tail.render(self.canv)

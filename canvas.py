@@ -19,7 +19,7 @@ class Canvas:
             for x in range (0,self.width):
                 print(self.screen[x][y],end = " ")
             print()
-        
+        print()
 
     def getWidth(self):
         return self.width
