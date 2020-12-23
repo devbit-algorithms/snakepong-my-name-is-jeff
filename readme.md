@@ -18,6 +18,6 @@ Met veel moed maar een slecht ochtend humeur zijn we dan aan deze taak begonnen.
 Finished | Exercise | Difficulty
 :---: | ---- | ----
  :✔️: | Making Walls | :star:
- :X: | Snake | :star:star:
+ :X: | Snake | :star::star:
  :X: | Ball | :star::star::star:
  :X: | Test | :star::star:
