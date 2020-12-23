@@ -8,7 +8,7 @@ Met veel moed maar een slecht ochtend humeur zijn we dan aan deze taak begonnen.
 # Requirements
 
  | What | What Does It Do |
- :---: | --- | ----
+ :---: | ----
  Snake | This is the thing the player uses to play the game |
  Wall  | Will automatically be generated and the ball will collide with the wall |
- Ball | This will go randomly through the playingfield |
+ Ball  | This will go randomly through the playingfield |
