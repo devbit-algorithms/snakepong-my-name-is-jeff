@@ -20,8 +20,8 @@ Met veel moed maar een slecht ochtend humeur zijn we dan aan deze taak begonnen.
 ==Finished== | ==Exercise== | ==Difficulty==
 :---: | ---- | ----
  ✔️ | Making Walls | :star:
- X | Snake | :star::star:
+ ✔️ | Snake Head | :star:
+ ✔️ | Snake Tail | :star::star:
+ X | Snake | :star::star::star:
  X | Ball | :star::star::star:
  X | Test | :star::star:
-
- 
