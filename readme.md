@@ -1,10 +1,10 @@
 # Benodigdheden
 
-een canvas
-muren
-snake
-tail
-bal
-goal
-scoreboard
+een canvas\
+muren\
+snake\
+tail\
+bal\
+goal\
+scoreboard\
 collision detection
