@@ -2,6 +2,8 @@
 
 This is a snakepong game made by Seppe De Witte and Robin Debel
 it's a game that combines both snake and pong.
+In our game you play as a goalkeeper. The ball will always bounce back.
+You need to save the ball as many times as possible.
 
 ---
 
