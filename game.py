@@ -1,7 +1,6 @@
 from canvas import Canvas
 from wall import Wall
 from snake import Snake
-
 import time
 import os
 
@@ -32,19 +31,19 @@ class Game:
             self.update()
             self.render()
             time.sleep(1)
+            
+            
+            
+            
 
 
     def update(self):
         self.updateSnake()
         
 
-
-
     def updateSnake(self):
-
-
-        self.snake.move(self.snake.x()-1,self.snake.y())
-
+        self.snake.move(self.snake.x()-1,self.snake.y()) 
+        self.snake.move(self.snake.x(),self.snake.y()-1) 
     def render(self):
         os.system("clear")
         self.canv.clearCanvas()
