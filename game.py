@@ -74,7 +74,7 @@ class Game:
 
     def updateBall(self):
         for tail in self.tails:
-            if((tail.y() == self.ball.y()) & (tail.x()-1 == self.ball.x()) & self.velocityballx == 1):
+            if((tail.y() == self.ball.y()) & ((tail.x()-1 == self.ball.x()) or (tail.x()-1 == self.ball.x())) & self.velocityballx == 1):
                 self.velocityballx = -(self.velocityballx)
                 self.score += 1
 
