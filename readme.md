@@ -20,6 +20,6 @@ it's a game that combines both snake and pong.
  ✔️ | Making Walls | :star:
  ✔️ | Snake Head | :star:
  ✔️ | Snake Tail | :star::star:
- X | Snake | :star::star::star:
- X | Ball | :star::star::star:
+ ✔️ | Snake | :star::star::star:
+ ✔️ | Ball | :star::star::star:
  X | Test | :star::star:
