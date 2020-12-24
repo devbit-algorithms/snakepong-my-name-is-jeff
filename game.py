@@ -18,7 +18,10 @@ class Game:
         self.ball = Ball(2, int(self.canv.getHeight()/2) )
         self.direction = "left"
         self.gameover = False
+        self.updatecounter = 0
         threading.Thread(target=self.updateDirection).start()
+        self.velocityballx = -1
+        self.velocitybally = -1
         
         self.walls = []
         self.tails = []
@@ -55,11 +58,42 @@ class Game:
 
     def update(self):
         
+        if (self.updatecounter == 2):
+            self.updateBall()
+            self.updatecounter = 0
+        self.updatecounter += 1
+        
         self.updateTail()
         self.updateSnake()
         self.collisionDetection()
+
+    def ballMovement(self):
+        self.ball.move(self.ball.x()+self.velocityballx,self.ball.y()+self.velocitybally)
         
 
+    def updateBall(self):
+            #hittings with snake!!!
+        for tail in self.tails:
+            if(tail.x() == self.ball.x() & tail.y() == self.ball.y()):
+                self.velocityballx = -(self.velocityballx)
+
+        
+        if(self.snake.x()-1 == self.ball.x() & self.snake.y() == self.ball.y()):
+                self.velocityballx = -(self.velocityballx)
+
+                
+        if (self.ball.x() == 1):
+            #ball hitting left wall 
+            self.velocityballx = -(self.velocityballx)
+        if(self.ball.y() == self.canv.getHeight() -2 or self.ball.y() == 1):
+            #ball hitting lower or upper wall
+            self.velocitybally = -(self.velocitybally)
+        
+
+
+
+        self.ballMovement()
+        
     def updateDirection(self):
         while not self.gameover:
             key = getwch()
@@ -84,7 +118,7 @@ class Game:
             self.snake.move(self.snake.x(),self.snake.y()+1) #right
 
     def updateTail(self):
-        taillength = 5
+        taillength = 10
         if len(self.tails) < taillength:
             self.addTailPiece()
         if len(self.tails) >= taillength:
