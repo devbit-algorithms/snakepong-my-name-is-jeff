@@ -19,6 +19,7 @@ class Game:
         self.direction = "left"
         self.gameover = False
         self.updatecounter = 0
+        self.score = 0
         threading.Thread(target=self.updateDirection).start()
         self.velocityballx = -1
         self.velocitybally = -1
@@ -33,7 +34,7 @@ class Game:
         self.game_loop()
         
         os.system("clear")
-        print("GAME OVER\nPress any key to go back to the terminal.")
+        print("GAME OVER\nYour score was: " + str(self.score)+ "\nPress any key to go back to the terminal.\n")
         
 
     def createWalls(self):
@@ -72,16 +73,15 @@ class Game:
         
 
     def updateBall(self):
-            #hittings with snake!!!
         for tail in self.tails:
-            if(tail.x() == self.ball.x() & tail.y() == self.ball.y()):
+            if((tail.y() == self.ball.y()) & (tail.x()-1 == self.ball.x())):
                 self.velocityballx = -(self.velocityballx)
+                self.score += 1
 
-        
         if(self.snake.x()-1 == self.ball.x() & self.snake.y() == self.ball.y()):
-                self.velocityballx = -(self.velocityballx)
+            self.velocityballx = -(self.velocityballx)
+            self.score += 1
 
-                
         if (self.ball.x() == 1):
             #ball hitting left wall 
             self.velocityballx = -(self.velocityballx)
@@ -89,9 +89,6 @@ class Game:
             #ball hitting lower or upper wall
             self.velocitybally = -(self.velocitybally)
         
-
-
-
         self.ballMovement()
         
     def updateDirection(self):
@@ -143,6 +140,7 @@ class Game:
         self.ball.render(self.canv)
 
         self.canv.outputCanvasTerminal()
+        print("Score: " + str(self.score))
 
     def addTailPiece(self):
         self.tails.append(Tail(self.snake.x(),self.snake.y()))
@@ -153,6 +151,7 @@ class Game:
     def collisionDetection(self):
         self.collisionWall()
         self.collisionTail()
+        self.collisionGoal()
 
     def collisionWall(self):
         for wall in self.walls:
@@ -163,3 +162,13 @@ class Game:
         for tail in self.tails:
             if((tail.x() == self.snake.x()) & (tail.y() == self.snake.y())):
                 self.gameover = True
+
+    def collisionGoal(self):
+        #ball with goal:
+        if(self.ball.x() == self.canv.getWidth()-1):
+            self.gameover = True
+        
+        #snake with goal:
+        if(self.snake.x() == self.canv.getWidth()-1):
+            self.gameover = True
+        
