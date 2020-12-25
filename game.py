@@ -49,14 +49,14 @@ class Game:
 
 
     def game_loop(self):
-        counter = 0
+        
         while not self.gameover:
-            if counter <= 10:
-                self.update()
-                counter = 0
+            
+            self.update()
+                
             self.render()
-            time.sleep(0.2)
-            counter += counter
+            time.sleep(0.1)
+            
 
     def update(self):
         
