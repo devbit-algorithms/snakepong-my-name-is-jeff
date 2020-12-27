@@ -1,3 +1,3 @@
-from game import Game
 
-Game()
+from menu import Menu
+Menu()
