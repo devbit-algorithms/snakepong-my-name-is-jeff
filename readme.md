@@ -1,9 +1,9 @@
 # Intro
 
-Van Dhr. P. Cordemans hebben wij de opdracht gekregen om een game te developen namelijk SnakePong.
-Dit is een mix van de 2 legendarische spellen Snake en Pong.
-als voorbeeld kregen wij volgende link : https://twitter.com/Pcordemans/status/979060961645678593?s=20.
-Met veel moed maar een slecht ochtend humeur zijn we dan aan deze taak begonnen.
+This is a snakepong game made by Seppe De Witte and Robin Debel
+it's a game that combines both snake and pong.
+In our game you play as a goalkeeper. The ball will always bounce back.
+You need to save the ball as many times as possible.
 
 ---
 

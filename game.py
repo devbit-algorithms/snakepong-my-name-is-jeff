@@ -22,6 +22,8 @@ class Game:
         threading.Thread(target=self.updateDirection).start()
         self.velocityballx = -1
         self.velocitybally = -1
+        self.receivedInput = False
+        
         self.walls = []
         self.tails = []
         self.goals = []
@@ -43,15 +45,14 @@ class Game:
 
 
     def game_loop(self):
-        counter = 0
+        
         while not self.gameover:
-            if counter <= 10:
-                self.update()
-                counter = 0
+            
+            self.update()
+                
             self.render()
-            #Settings.chose_difficulty()
-            time.sleep(0.2)
-            counter += counter
+            time.sleep(0.1)
+            
 
     def update(self):
         
@@ -70,7 +71,7 @@ class Game:
 
     def updateBall(self):
         for tail in self.tails:
-            if((tail.y() == self.ball.y()) & (tail.x()-1 == self.ball.x())):
+            if((tail.y() == self.ball.y()) & ((tail.x()-1 == self.ball.x()) or (tail.x()-1 == self.ball.x())) and self.velocityballx > 0):
                 self.velocityballx = -(self.velocityballx)
                 self.score += 1
 
@@ -90,14 +91,19 @@ class Game:
     def updateDirection(self):
         while not self.gameover:
             key = getwch()
-            if (key == "q") & (self.direction is not "right"):
-                self.direction = "left" 
-            if (key == "d") & (self.direction is not "left"):
-                self.direction = "right" 
-            if (key == "z") & (self.direction is not "down"):
-                self.direction = "up" 
-            if (key == "s") & (self.direction is not "up"):
-                self.direction = "down" 
+            if (key == "q") & (self.direction is not "right") & (not self.receivedInput) :
+                self.direction = "left"
+                self.receivedInput = True
+            if (key == "d") & (self.direction is not "left") & (not self.receivedInput):
+                self.direction = "right"
+                self.receivedInput = True
+            if (key == "z") & (self.direction is not "down") & (not self.receivedInput):
+                self.direction = "up"
+                self.receivedInput = True
+            if (key == "s") & (self.direction is not "up") & (not self.receivedInput):
+                self.direction = "down"
+                self.receivedInput = True
+
 
     def updateSnake(self):
         
@@ -109,7 +115,8 @@ class Game:
             self.snake.move(self.snake.x(),self.snake.y()-1) #right
         if self.direction == "down":
             self.snake.move(self.snake.x(),self.snake.y()+1) #right
-
+        self.receivedInput = False
+        
     def updateTail(self):
         taillength = 10
         if len(self.tails) < taillength:
