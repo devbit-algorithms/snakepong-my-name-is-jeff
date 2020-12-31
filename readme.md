@@ -24,5 +24,9 @@ You need to save the ball as many times as possible.
  ✔️ | Snake Tail | :star::star:
  ✔️ | Snake | :star::star::star:
  ✔️ | Ball | :star::star::star:
- X | Test | :star::star:
-  X | Menu | :star::star:
+ ✔️ | Test | :star::star::star:
+ ✔️ | Menu | :star::star:
+
+## Schema
+
+![demo snakepong](img/variableschema?raw=true "code schematic")
