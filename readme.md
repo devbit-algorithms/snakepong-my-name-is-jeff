@@ -29,4 +29,4 @@ You need to save the ball as many times as possible.
 
 ## Schema
 
-![demo snakepong](img/variableschema?raw=true "code schematic")
+![image](variableschema.png)
