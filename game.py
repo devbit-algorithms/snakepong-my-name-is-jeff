@@ -19,7 +19,7 @@ class Game:
         self.gameover = False
         self.updatecounter = 0
         self.score = 0
-        threading.Thread(target=self.updateDirection).start()
+        #threading.Thread(target=self.updateDirection).start() #put this in commentary to run test_game.py
         self.velocityballx = -1
         self.velocitybally = -1
         self.receivedInput = False
@@ -29,7 +29,7 @@ class Game:
         self.goals = []
         self.snake = Snake(int(self.canv.getWidth()/2),int(self.canv.getHeight()/2))
         self.createWalls()
-        self.game_loop()
+        #self.game_loop() #put this in commentary to run test_game.py
         os.system("clear")
         print("GAME OVER\nYour score was: " + str(self.score)+ "\nPress any key to go back to the terminal.\n")
         
