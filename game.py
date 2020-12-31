@@ -4,15 +4,15 @@ from snake import Snake
 from tail import Tail
 from goal import Goal
 from ball import Ball
-#from settings import Settings
 import threading
 from msvcrt import getwch, kbhit
 import time
 import os
 
 class Game:
-    def __init__(self):
+    def __init__(self, time):
         
+        self.time = time
         self.canv = Canvas(40,30)
         self.ball = Ball(2, int(self.canv.getHeight()/2) )
         self.direction = "left"
@@ -51,7 +51,7 @@ class Game:
             self.update()
                 
             self.render()
-            time.sleep(0.1)
+            time.sleep(self.time)
             
 
     def update(self):
